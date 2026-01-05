@@ -44,7 +44,9 @@ Then open `http://localhost:3000`.
 
 ## Demo
 
-[![Watch the demo](public/Screenshot%202026-01-04%20at%2010.38.59%E2%80%AFPM.png)](public/weatherdemo.mp4)
+<video controls width="100%" src="https://raw.githubusercontent.com/frankwilz/Weather-app/main/public/weatherdemo.mp4" title="Weather by Frank demo"></video>
+
+If the embed does not render on your device, [watch/download the demo here](https://raw.githubusercontent.com/frankwilz/Weather-app/main/public/weatherdemo.mp4).
 
 ## Running snapshot
 

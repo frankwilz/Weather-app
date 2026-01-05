@@ -1,38 +1,368 @@
-.App {
-  text-align: center;
+:root {
+  --bg: #0c1023;
+  --panel: rgba(12, 22, 46, 0.76);
+  --muted: #c4c9d4;
+  --primary: #7de1fa;
+  --accent: linear-gradient(135deg, #7de1fa, #7b8bff);
+  --border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 20px 60px rgba(4, 10, 41, 0.55);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.page {
+  position: relative;
   min-height: 100vh;
+  padding: 48px 20px 64px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)),
+    url('./assets/weatherbackground.webp') center/cover no-repeat fixed;
+  color: #f5f7ff;
+  display: flex;
+  justify-content: center;
+}
+
+.ambient {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  filter: blur(110px);
+  z-index: 0;
+}
+
+.ambient-one {
+  background: #7de1fa;
+  top: 6%;
+  left: 8%;
+}
+
+.ambient-two {
+  background: #7b8bff;
+  bottom: 10%;
+  right: 10%;
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1150px;
+  background: linear-gradient(160deg, rgba(7, 15, 33, 0.92), rgba(7, 18, 40, 0.84));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(4px);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.lede {
+  margin: 0;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+.toggle {
+  display: inline-flex;
+  padding: 6px;
+  background: var(--panel);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  gap: 6px;
+}
+
+.toggle button {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: transparent;
+  color: #e8ecf6;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.toggle button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.toggle button.active {
+  background: var(--accent);
+  color: #0c1023;
+  transform: translateY(-1px);
+}
+
+.search {
+  margin: 10px 0 18px;
+}
+
+.search-field {
+  display: flex;
+  background: rgba(12, 22, 46, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 4px;
+  gap: 10px;
+}
+
+.search-field input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #f5f7ff;
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+.search-field input:focus {
+  outline: none;
+}
+
+.search-field button {
+  background: var(--accent);
+  border: none;
+  color: #0c1023;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.search-field button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.search-field button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(125, 225, 250, 0.4);
+}
+
+.alert {
+  margin: 8px 0 16px;
+  padding: 12px 16px;
+  background: rgba(255, 90, 90, 0.08);
+  border: 1px solid rgba(255, 90, 90, 0.25);
+  color: #ffc2c2;
+  border-radius: 12px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stack {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.label {
+  color: var(--muted);
+  margin: 0 0 6px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+.current-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.current-meta {
+  display: grid;
+  gap: 6px;
+}
+
+.city {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.description {
+  margin: 0;
+  color: #d9def0;
+  text-transform: capitalize;
+}
+
+.temp-line {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.temp {
+  font-size: clamp(46px, 6vw, 64px);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.feels {
+  color: var(--muted);
+}
+
+.range {
+  margin: 0;
+  color: var(--muted);
+}
+
+.current-icon img {
+  width: 90px;
+  height: 90px;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.35));
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.stat-value {
+  margin: 6px 0 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.advice {
+  border: 1px solid rgba(125, 225, 250, 0.2);
+}
+
+.advice.good {
+  background: linear-gradient(135deg, rgba(109, 230, 182, 0.12), rgba(125, 225, 250, 0.06));
+}
+
+.advice.caution {
+  background: linear-gradient(135deg, rgba(255, 173, 96, 0.15), rgba(255, 120, 120, 0.08));
+}
+
+.advice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f5f7ff;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.advice-title {
+  margin: 6px 0;
+  font-size: 20px;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.forecast-day {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px;
+  text-align: center;
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+}
+
+.forecast-day img {
+  width: 60px;
+  height: 60px;
+}
+
+.forecast-temp {
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 24px 18px;
+  }
+
+  .search-field {
+    flex-direction: column;
+  }
+
+  .search-field button {
+    width: 100%;
+  }
+
+  .current-body {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

@@ -42,6 +42,16 @@ Then open `http://localhost:3000`.
 - Friendly error states for missing keys, invalid cities, and network hiccups.
 - Responsive, animated glassmorphism-inspired UI.
 
+## Demo
+
+[![Watch the demo](public/Screenshot%202026-01-04%20at%2010.38.59%E2%80%AFPM.png)](public/weatherdemo.mp4)
+
+## Running snapshot
+
+Terminal after a successful run:
+
+![Terminal view](public/Screenshot%202026-01-04%20at%2010.38.59%E2%80%AFPM.png)
+
 ## Project structure
 
 - `src/App.js` – main container, data fetching, and state management.

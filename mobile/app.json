@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Weather by Frank",
+    "slug": "weather-by-frank-mobile",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "backgroundColor": "#0c1023",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      "expo-asset"
+    ]
+  }
+}

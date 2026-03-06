@@ -66,6 +66,12 @@ Terminal after a successful run:
   - `ForecastRail` – five-day forecast tiles.
 - `src/App.css` & `src/index.css` – layout, theme, and typography.
 
+### Mobile
+
+- `mobile/App.js` – React Native screen with the same weather, forecast, unit toggle, and travel advice flow.
+- `mobile/README.md` – mobile setup and environment instructions for Expo.
+- `mobile/app.json` – Expo config.
+
 ## API notes
 
 Data comes from:

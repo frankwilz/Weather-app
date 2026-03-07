@@ -24,7 +24,9 @@ React Native (Expo) mobile app for the weather experience.
    ```bash
    npx expo start -c
    ```
-5. Open on device:
+   You should see a qr code like this :
+   
+6. Open on device:
    - Install Expo Go on your phone.
    - Scan the QR code shown in the terminal or DevTools.
 

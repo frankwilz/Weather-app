@@ -25,14 +25,14 @@ React Native (Expo) mobile app for the weather experience.
    npx expo start -c
    ```
    You should see a qr code like this :
-   ![Expo QR code](public/qr.png)
+   ![Expo QR code](/public/qr.png)
    
 6. Open on device:
    - Install Expo Go on your phone.
    - Scan the QR code shown in the terminal or DevTools.
 
    A successful run should look like this:
-   ![Expo QR code](public/app_m.PNG)
+   ![running app](/public/app_m.PNG)
 If you do not see a QR code, run:
 ```bash
 npx expo start --tunnel

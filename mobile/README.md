@@ -10,7 +10,7 @@ React Native (Expo) mobile app for the weather experience.
 
 1. Go to the mobile folder:
    ```bash
-   cd "/Users/frankwilliams/Documents/weather app/weather-app/mobile"
+   cd "weather-app/mobile"
    ```
 2. Install dependencies:
    ```bash
